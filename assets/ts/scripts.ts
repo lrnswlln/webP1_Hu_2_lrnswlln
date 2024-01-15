@@ -21,6 +21,7 @@ document.querySelector("#formCreate").addEventListener("submit", (event) => {
 function createUserObjectRandom() {
     for (let i = 0; i < 10; i++) {
         const randomUser = createRandomUser();
+        scrollDown();
         users.push(randomUser);
     }
 
@@ -34,10 +35,11 @@ function createRandomUser(): UserObject {
     const randomString = () => Math.random().toString(36).substring(7);
 
     return new UserObject(
-        `FirstName_${randomString()}`,
-        `LastName_${randomString()}`,
-        `${randomString()}@example.com`,
-        `Password_${randomString()}`
+
+        "FirstName_"+randomString(),
+        "LastName_"+randomString(),
+        randomString()+"@example.com",
+        "Password_"+randomString()
     );
 }
 
@@ -81,6 +83,7 @@ function createUserObject() {
 
         // Nutzer anzeigen
         displayUserList();
+        scrollDown();
     } else {
         alert("Bitte alle Eingabefelder ausfüllen, um den Nutzer zu erstellen.");
     }
@@ -92,6 +95,8 @@ let userSelectIdx: number | null = null;
 
 function displayUserList() {
     const tableBody: HTMLTableElement | null = document.getElementById("userTableBody") as HTMLTableElement;
+
+    console.log(users);
 
     if (tableBody) {
 
@@ -199,6 +204,14 @@ function deleteUser(index: number) {
         // Element nicht löschen (Modal Hinzufuegen?)
     }
     displayUserList();
+}
+
+function scrollDown() {
+    //this.scroller.scrollToAnchor("targetGreen");
+    document.getElementById("userList").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+    });
 }
 
 

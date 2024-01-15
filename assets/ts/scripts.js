@@ -17,6 +17,7 @@ document.querySelector("#formCreate").addEventListener("submit", function (event
 function createUserObjectRandom() {
     for (var i = 0; i < 10; i++) {
         var randomUser = createRandomUser();
+        scrollDown();
         users.push(randomUser);
     }
     // Display function aufrufen
@@ -25,7 +26,7 @@ function createUserObjectRandom() {
 function createRandomUser() {
     // Erzeugt einen zufälligen Benutzer
     var randomString = function () { return Math.random().toString(36).substring(7); };
-    return new UserObject("FirstName_".concat(randomString()), "LastName_".concat(randomString()), "".concat(randomString(), "@example.com"), "Password_".concat(randomString()));
+    return new UserObject("FirstName_" + randomString(), "LastName_" + randomString(), randomString() + "@example.com", "Password_" + randomString());
 }
 function createUserObject() {
     var firstNameInput = document.getElementById("firstName");
@@ -61,6 +62,7 @@ function createUserObject() {
         passwordInput.value = "";
         // Nutzer anzeigen
         displayUserList();
+        scrollDown();
     }
     else {
         alert("Bitte alle Eingabefelder ausfüllen, um den Nutzer zu erstellen.");
@@ -69,6 +71,7 @@ function createUserObject() {
 var userSelectIdx = null;
 function displayUserList() {
     var tableBody = document.getElementById("userTableBody");
+    console.log(users);
     if (tableBody) {
         tableBody.innerHTML = "";
         users.forEach(function (user, index) {
@@ -151,4 +154,11 @@ function deleteUser(index) {
         // Element nicht löschen (Modal Hinzufuegen?)
     }
     displayUserList();
+}
+function scrollDown() {
+    //this.scroller.scrollToAnchor("targetGreen");
+    document.getElementById("userList").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+    });
 }
