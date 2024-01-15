@@ -12,9 +12,10 @@
 <div class="container-fluid container-background">
 
     <div class="container">
-        <header class="d-block d-md-flex justify-content-around  justify-content-md-between py-5 my-5">
+        <header class="d-block d-md-flex justify-content-around justify-content-md-between py-5 my-5">
             <h1 class="text-white text-center" id="pageHeadline">User Manager</h1>
-            <button class="btn btn-primary my-3 p-3 bi bi-tornado btn-sparkle" id="randomBtn" onclick="createUserObjectRandom()">
+            <button class="btn btn-primary my-3 p-3 bi bi-tornado btn-sparkle" id="randomBtn"
+                    onclick="createUserObjectRandom()">
                 <span class="mx-2">Zufällige Nutzer</span>
             </button>
 
@@ -24,19 +25,19 @@
             <h2 class="w-100 text-center text-white py-3">Nutzer Erstellen</h2>
             <form id="formCreate">
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="email" placeholder="name@example.com" type="email" required>
+                    <input class="form-control" id="email" placeholder="name@example.com" required type="email">
                     <label for="email">E-Mail Adresse</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="firstName" placeholder="Vorname" type="text" required>
+                    <input class="form-control" id="firstName" placeholder="Vorname" required type="text">
                     <label for="firstName">Vorname</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="lastName" placeholder="Nachname" type="text" required>
+                    <input class="form-control" id="lastName" placeholder="Nachname" required type="text">
                     <label for="lastName">Nachname</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="password" placeholder="Passwort" type="password" required>
+                    <input class="form-control" id="password" placeholder="Passwort" required type="password">
                     <label for="password">Passwort</label>
                 </div>
 
@@ -46,21 +47,21 @@
             </form>
         </div>
 
-        <div class="display-users">
+        <div class="display-users" id="userList">
             <h2 class="w-100 text-center text-white py-3">Benutzer Liste</h2>
-                <table class="table table-hover align-middle table-responsive border rounded rounded-3 overflow-hidden">
-                    <thead>
-                    <tr>
-                        <th class="py-3" scope="col">E-Mail</th>
-                        <th class="py-3" scope="col">Nachname</th>
-                        <th class="py-3" scope="col">Vorname</th>
-                        <th class="py-3" scope="col">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody class="table-group-divider" id="userTableBody">
-                    <!-- Die User werden via for-each Loop über TS eingefügt -->
-                    </tbody>
-                </table>
+            <table class="table table-hover align-middle table-responsive border rounded rounded-3 overflow-hidden">
+                <thead>
+                <tr>
+                    <th class="py-3" scope="col">E-Mail</th>
+                    <th class="py-3" scope="col">Nachname</th>
+                    <th class="py-3" scope="col">Vorname</th>
+                    <th class="py-3" scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider" id="userTableBody">
+                <!-- Die User werden via for-each Loop über TS eingefügt -->
+                </tbody>
+            </table>
         </div>
 
         <div class="modal" id="editModal" tabindex="-1">
@@ -73,17 +74,20 @@
                     <div class="modal-body">
                         <form id="formEdit">
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="editFirstName" placeholder="Vorname" type="text" required>
+                                <input class="form-control" id="editFirstName" placeholder="Vorname" required
+                                       type="text">
                                 <label for="editFirstName">Vorname</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="editLastName" placeholder="Nachname" type="text" required>
+                                <input class="form-control" id="editLastName" placeholder="Nachname" required
+                                       type="text">
                                 <label for="editLastName">Nachname</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <fieldset disabled>
                                     <label class="mx-2" for="editEmail">E-Mail Adresse</label>
-                                    <input class="form-control" id="editEmail" placeholder="name@example.com" type="email" required>
+                                    <input class="form-control" id="editEmail" placeholder="name@example.com"
+                                           required type="email">
                                 </fieldset>
                             </div>
 
